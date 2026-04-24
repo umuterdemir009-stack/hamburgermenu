@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: blueviolet;
+    padding: 1rem 0;
+}
+
+.container {
+    width: 70rem;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1.logo {
+    font-size: 2.5rem;
+    color: white;
+}
+
+ul.menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: rgba(203, 203, 203, 0.423);
+    border-radius: 1rem;
+
+}
+
+#menuController {
+    display: none;
+}
+
+#menuController~label {
+    display: none;
+}
+
+@media screen and (max-width:992px) {
+    .container {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .logo {
+        align-self: start;
+        justify-content: space-between;
+        display: flex;
+        width: 100%;
+    }
+
+    ul.menu {
+        flex-direction: column;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 400ms;
+    }
+
+    ul.menu a {
+        text-align: center;
+    }
+
+    #menuController~.logo>label {
+        display: block;
+    }
+
+    #menuController~.logo>label::before {
+        font-family: "Material Icons";
+        content: 'menu';
+        font-size: 2rem;
+    }
+
+    #menuController:checked~ul.menu {
+   height: 12rem;
+    }
+        #menuController:checked~.logo>label::before {
+        font-family: "Material Icons";
+        content: 'close';
+        font-size: 2rem;
+    }
+
+}
